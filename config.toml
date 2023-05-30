@@ -1,0 +1,41 @@
+# The URL the site will be built for
+base_url = "https://calvinyong.github.io"
+
+# Whether to automatically compile all Sass files in the sass directory
+compile_sass = true
+
+# Whether to build a search index to be used later on by a JavaScript library
+build_search_index = false
+
+title = "My website"
+theme = "zola-theme-terminimal"
+
+taxonomies = [
+    {name = "tags"}
+]
+
+generate_feed = true
+feed_filename = "rss.xml"
+
+[markdown]
+# List of themes here
+# https://github.com/getzola/zola/tree/master/sublime/themes
+highlight_code = true
+highlight_theme = "nord"
+
+[extra]
+logo_text = "Calvin's blog"
+author = "Calvin Yong"
+
+page_titles = "main_only"
+post_view_navigation_prompt = ""
+
+menu_items = [
+    {name = "blog", url = "$BASE_URL"},
+    {name = "about me", url = "$BASE_URL/about"},
+    {name = "archive", url = "$BASE_URL/archive"},
+    {name = "tags", url = "$BASE_URL/tags"},
+
+    {name = "rss", url = "$BASE_URL/rss.xml"},
+    {name = "github", url = "https://github.com/calvinyong", newtab = true},
+]
