@@ -13,8 +13,6 @@ this is a test
 
 <!-- more -->
 
-more test
-
 ```sh
 ffmpeg -i in.mp4 out.mkv
 ```
