@@ -24,7 +24,7 @@ highlight_code = true
 highlight_theme = "nord"
 
 [extra]
-logo_text = "Calvin's blog"
+logo_text = "Calvin's Blog"
 author = "Calvin Yong"
 
 page_titles = "main_only"
