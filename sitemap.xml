@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <url>
+        <loc>https://calvinpyong.com/</loc>
+    </url>
+    <url>
+        <loc>https://calvinpyong.com/about/</loc>
+    </url>
+    <url>
+        <loc>https://calvinpyong.com/archive/</loc>
+    </url>
+    <url>
+        <loc>https://calvinpyong.com/ffmpeg-basics/</loc>
+        <lastmod>2023-06-22</lastmod>
+    </url>
+    <url>
+        <loc>https://calvinpyong.com/ffmpeg-quality-presets/</loc>
+        <lastmod>2023-06-23</lastmod>
+    </url>
+    <url>
+        <loc>https://calvinpyong.com/page/1/</loc>
+    </url>
+    <url>
+        <loc>https://calvinpyong.com/tags/</loc>
+    </url>
+    <url>
+        <loc>https://calvinpyong.com/tags/cli/</loc>
+    </url>
+    <url>
+        <loc>https://calvinpyong.com/tags/ffmpeg/</loc>
+    </url>
+</urlset>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+      <title>Calvin&#x27;s Website</title>
+      <link>https://calvinpyong.com</link>
+      <description></description>
+      <generator>Zola</generator>
+      <language>en</language>
+      <atom:link href="https://calvinpyong.com/rss.xml" rel="self" type="application/rss+xml"/>
+      <lastBuildDate>Fri, 23 Jun 2023 00:00:00 +0000</lastBuildDate>
+      <item>
+          <title>ffmpeg - Constant Quality and Presets</title>
+          <pubDate>Fri, 23 Jun 2023 00:00:00 +0000</pubDate>
+          <author>Calvin Yong</author>
+          <link>https://calvinpyong.com/ffmpeg-quality-presets/</link>
+          <guid>https://calvinpyong.com/ffmpeg-quality-presets/</guid>
+          <description>&lt;p&gt;This post will show how to control the quality of your output file and the encoding time when using &lt;code&gt;libx264&lt;&#x2F;code&gt; or &lt;code&gt;libx265&lt;&#x2F;code&gt;. This will only give a summary of using constant quality &#x2F; constant rate factor mode. For more information, see this ffmpeg wiki article on &lt;a href=&quot;https:&#x2F;&#x2F;trac.ffmpeg.org&#x2F;wiki&#x2F;Encode&#x2F;H.264&quot;&gt;H.264 Video Encoding&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;constant-rate-factor-crf&quot;&gt;Constant Rate Factor (CRF)&lt;&#x2F;h2&gt;
+&lt;p&gt;If you only care about achieving the best compression rate at some target quality, and do not care about the file size, then constant quality &#x2F; constant rate factor (CRF) mode is a great mode to use. CRF is controlled using the &lt;code&gt;-crf&lt;&#x2F;code&gt; option. The range for 8-bit &lt;code&gt;libx264&lt;&#x2F;code&gt; is 0-51, where lower is better quality, but a sensible range is 17–28, and the default value is 23. By default, &lt;code&gt;libx264&lt;&#x2F;code&gt; will use CRF mode.&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2e3440;color:#d8dee9;&quot;&gt;&lt;code&gt;&lt;span&gt;ffmpeg -i in.mkv -vcodec libx264 -acodec copy out.mkv
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Note that we added &lt;code&gt;-acodec copy&lt;&#x2F;code&gt; to the command. Without it, ffmpeg reencode the audio part using the default audio encoder. To change the default CRF value, use the following command:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;sh&quot; style=&quot;background-color:#2e3440;color:#d8dee9;&quot; class=&quot;language-sh &quot;&gt;&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;&lt;span style=&quot;color:#88c0d0;&quot;&gt;ffmpeg&lt;&#x2F;span&gt;&lt;span&gt; -i in.mkv -vcodec libx264 -crf 23 -acodec copy out.mkv
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+</description>
+      </item>
+      <item>
+          <title>ffmpeg - Transcoding Basics</title>
+          <pubDate>Thu, 22 Jun 2023 00:00:00 +0000</pubDate>
+          <author>Calvin Yong</author>
+          <link>https://calvinpyong.com/ffmpeg-basics/</link>
+          <guid>https://calvinpyong.com/ffmpeg-basics/</guid>
+          <description>&lt;p&gt;This post on ffmpeg will focus on one of the basic use cases of ffmpeg: transcoding videos. The commands given in this post are the minimum command line arguments needed to transcode a video. For controlling encoding equality and encoding time, see my post on &lt;a href=&quot;https:&#x2F;&#x2F;calvinpyong.com&#x2F;ffmpeg-quality-presets&#x2F;&quot;&gt;constant quality and presets&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+</description>
+      </item>
+    </channel>
+</rss>

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Calvin&#x27;s Website</title>
+    
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <meta name="robots" content="noodp"/>
+
+    <link rel="stylesheet" href="https://calvinpyong.com/style.css">
+    <link rel="stylesheet" href="https://calvinpyong.com/color/blue.css">
+
+    <link rel="stylesheet" href="https://calvinpyong.com/font-hack-subset.css">
+
+            <link rel="alternate" type="application/rss+xml" title="RSS" href="https://calvinpyong.com/rss.xml">
+    
+    </head>
+
+<body class="">
+<div class="container">
+    
+    <header class="header">
+        <div class="header__inner">
+            <div class="header__logo">
+                    
+                <a href="https://calvinpyong.com" style="text-decoration: none;">
+                    <div class="logo">
+                      
+                            Calvin&#x27;s Blog
+                        
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        
+        
+                <nav class="menu">
+            <ul class="menu__inner">
+                <li class="active"><a href="https://calvinpyong.com">blog</a></li>
+            
+                <li><a href="https://calvinpyong.com/about">about me</a></li>
+            
+                <li><a href="https://calvinpyong.com/archive">archive</a></li>
+            
+                <li><a href="https://calvinpyong.com/tags">tags</a></li>
+            
+                <li><a href="https://calvinpyong.com/rss.xml">rss</a></li>
+            
+                <li><a href="https://github.com/calvinyong" target="_blank" rel="noopener noreferrer">github</a></li>
+            </ul>
+        </nav>
+    
+    
+        
+    </header>
+    
+
+    <div class="content">
+        
+    <div class="post">
+        
+    <h1 class="post-title"><a href="https://calvinpyong.com/ffmpeg-quality-presets/">ffmpeg - Constant Quality and Presets</a></h1>
+    <div class="post-meta-inline">
+        
+    <span class="post-date">
+            2023-06-23
+        </span>
+
+    </div>
+
+    
+        <span class="post-tags-inline">
+                :: tags:&nbsp;
+                <a class="post-tag" href="https://calvinpyong.com/tags/cli/">#cli</a>&nbsp;
+                <a class="post-tag" href="https://calvinpyong.com/tags/ffmpeg/">#ffmpeg</a></span>
+    
+
+        
+        <div class="post-content">
+            <p>This post will show how to control the quality of your output file and the encoding time when using <code>libx264</code> or <code>libx265</code>. This will only give a summary of using constant quality / constant rate factor mode. For more information, see this ffmpeg wiki article on <a href="https://trac.ffmpeg.org/wiki/Encode/H.264">H.264 Video Encoding</a></p>
+<h2 id="constant-rate-factor-crf">Constant Rate Factor (CRF)</h2>
+<p>If you only care about achieving the best compression rate at some target quality, and do not care about the file size, then constant quality / constant rate factor (CRF) mode is a great mode to use. CRF is controlled using the <code>-crf</code> option. The range for 8-bit <code>libx264</code> is 0-51, where lower is better quality, but a sensible range is 17–28, and the default value is 23. By default, <code>libx264</code> will use CRF mode.</p>
+<pre style="background-color:#2e3440;color:#d8dee9;"><code><span>ffmpeg -i in.mkv -vcodec libx264 -acodec copy out.mkv
+</span></code></pre>
+<p>Note that we added <code>-acodec copy</code> to the command. Without it, ffmpeg reencode the audio part using the default audio encoder. To change the default CRF value, use the following command:</p>
+<pre data-lang="sh" style="background-color:#2e3440;color:#d8dee9;" class="language-sh "><code class="language-sh" data-lang="sh"><span style="color:#88c0d0;">ffmpeg</span><span> -i in.mkv -vcodec libx264 -crf 23 -acodec copy out.mkv
+</span></code></pre>
+<span id="continue-reading"></span><h2 id="presets">Presets</h2>
+<p>A preset is a collection of options for the encoder to adjust the compression ratio and encoding speed. While x264 does have 10 presets, I personally would only consider superfast, medium, and slow. Slow can be fine for <code>libx264</code>, but would probably be too slow for <code>libx265</code>. Superfast is useful for when you are streaming to a platnform or recording. To set a preset, use the <code>-preset</code> option.</p>
+<pre data-lang="sh" style="background-color:#2e3440;color:#d8dee9;" class="language-sh "><code class="language-sh" data-lang="sh"><span style="color:#88c0d0;">ffmpeg</span><span> -i in.mkv -vcodec libx264 -preset medium -acodec copy out.mkv
+</span></code></pre>
+<h2 id="values-that-i-personally-use">Values that I Personally Use</h2>
+<p>From my experience and for my use case, I find using a CRF value of 20 for <code>libx264</code> and a preset value of slow to be a good balance of video quality, file size, and encoding time.</p>
+<pre data-lang="sh" style="background-color:#2e3440;color:#d8dee9;" class="language-sh "><code class="language-sh" data-lang="sh"><span style="color:#88c0d0;">ffmpeg</span><span> -i in.mkv -vcodec libx264 -crf 20 -preset slow -acodec copy out.mkv
+</span></code></pre>
+<p>For <code>libx265</code>, I would not change the default preset since <code>libx265</code> takes more time to encode a video compared to <code>libx264</code>.</p>
+
+        </div>
+
+        
+        <div class="pagination">
+            <div class="pagination__title">
+                <span class="pagination__title-h"></span>
+                <hr />
+            </div>
+            <div class="pagination__buttons">
+                    <span class="button previous">
+                        <a href="https://calvinpyong.com/ffmpeg-basics/">
+                            <span class="button__icon">←</span>&nbsp;
+                            <span class="button__text">ffmpeg - Transcoding Basics</span>
+                        </a>
+                    </span>
+                
+                </div>
+        </div>
+    
+    </div>
+
+    </div>
+
+    
+    <footer class="footer">
+        <div class="footer__inner">
+                <div class="copyright">
+                        <span>© 
+    2023
+ Calvin Yong</span>
+                    <span class="copyright-theme">
+                        <span class="copyright-theme-sep">:: </span>
+                        Theme: <a href="https://github.com/pawroman/zola-theme-terminimal/">Terminimal</a> by pawroman
+                    </span>
+                </div>
+            </div>
+    </footer>
+    
+
+</div>
+</body>
+
+</html>
