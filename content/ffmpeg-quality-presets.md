@@ -2,6 +2,7 @@
 title = "ffmpeg - Constant Quality and Presets"
 date = 2023-06-23
 updated = 2023-06-23
+authors = ["Calvin Yong"]
 
 [taxonomies]
 tags = ["cli", "ffmpeg"]

@@ -2,6 +2,7 @@
 title = "ffmpeg - Transcoding Basics"
 date = 2023-06-22
 updated = 2023-06-22
+authors = ["Calvin Yong"]
 
 [taxonomies]
 tags = ["cli", "ffmpeg"]
